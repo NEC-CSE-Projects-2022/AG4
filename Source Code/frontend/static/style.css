@@ -1,0 +1,311 @@
+body {
+  font-family: Arial, sans-serif;
+ /* background: #f0f4f7;*/
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width:100%;
+  overflow:hidden ;
+}
+
+nav {
+  background: transparent;
+  padding: 15px 0;
+  text-align: center;
+  position:fixed;
+  width: 100%;
+  top:0;
+  z-index: 10;
+}
+
+nav a {
+  color: rgb(246, 244, 244);
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #fbf7f7;
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+  width: 120px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #0077aa;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005f87;
+}
+
+h1 {
+  color: #004d66;
+}
+/* Hero section */
+.hero {
+  position:fixed;
+  align-items:center;
+  width:100vw;
+  height:100vh;
+  display:flex;
+  justify-content: center;
+  overflow: hidden;
+  background: no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero-bg {
+  position:absolute;
+  top: 0;
+  left: 80;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover; /* makes it fill the screen */
+  z-index: -1;
+  filter: brightness(0.5);/
+}
+
+.hero-text {
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  border-radius: 12px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #f6f4f4;
+}
+
+.hero-text p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 14px 35px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+.btn:hover {
+  background-color: #e63939;
+}
+
+/* Info section */
+.info {
+  padding: 40px 20px;
+  background: #f7fafc;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+.info h2 {
+  color: #004d66;
+}
+
+.info p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #333;
+  line-height: 1.6;
+}
+/* ---------- About Page ---------- */
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(15px);
+  padding: 50px 60px;
+  width: 75%;
+  max-width: 850px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  color: #003a4d;
+  text-align: left;
+}
+
+.about-card h1 {
+  text-align: center;
+  color: #0e0e0e;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.about-card p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.highlights {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.highlights h3 {
+  color: #0c0c0c;
+  margin-bottom: 10px;
+}
+
+.highlights ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights li {
+  background: rgba(255, 255, 255, 0.25);
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+
+/* Reset margins and prevent scrollbars */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fullscreen background image */
+body {
+  background: url("https://www.incrediblehealth.com/wp-content/uploads/2020/12/Choosing_the_Best_Stethoscope_For_Nurses.png")
+              no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main form container (frosted glass style) */
+.container-form {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 50px 60px;
+  width: 70%;
+  max-width: 850px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  /*display: flex;
+  flex-direction: column;*/
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  color: #004b63;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+/* Grid layout for input fields */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* Input styling */
+input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s ease;
+  outline: none;
+}
+.grid input {
+  width: 80%;          /* full width */
+  height: 30px;         /* increase height */
+  font-size: 16px;      /* larger text */
+  padding: 12px 15px;   /* inner spacing */
+  border-radius: 9px;   /* smooth corners */
+}
+
+input:focus {
+  border-color: #00789c;
+  box-shadow: 0 0 5px rgba(0, 120, 156, 0.5);
+}
+
+/* Predict button at the bottom center */
+button {
+  margin-top: 40px;
+  padding: 12px 25px;
+  background-color: #006c91;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+button:hover {
+  background-color: #004d66;
+  transform: scale(1.05);
+}
+
+/* Output styling */
+#output {
+  margin-top: 25px;
+  text-align: center;
+  color: #003a4d;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.file-input{
+    width: 380px;      /* increase size */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: transparent;
+}
