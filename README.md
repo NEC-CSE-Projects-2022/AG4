@@ -2,13 +2,13 @@
 # Team Number – Project Title
 
 ## Team Info
-- 22471A05XX — Mutyam Srilakshmi ( [LinkedIn](https://www.linkedin.com/in/mutyam-srilakshmi-9065b8341 ) )
+- 22471A0541 — Mutyam Srilakshmi ( [LinkedIn](https://www.linkedin.com/in/mutyam-srilakshmi-9065b8341 ) )
 _Work Done: Dataset preprocessing, SMOTEENN balancing, EDA graphs (outlier removal, normalization, class distribution), report writing.
 
-- 22471A05XX — Grandhisila Durga Vyshnavi ( [LinkedIn](linkedin.com/in/g-durga-vyshnavi-a83a87324) )
+- 22471A0524 — Grandhisila Durga Vyshnavi ( [LinkedIn](linkedin.com/in/g-durga-vyshnavi-a83a87324) )
 _Work Done: BiLSTM model implementation, training & validation accuracy plotting, performance evaluation, confusion matrix and ROC curve generation.
 
-- 22471A05XX — Shaik Kagaji Rabia Basri( [LinkedIn](linkedin.com/in/shaik-kagaji-rabia-basri-766182280) )
+- 22471A0550 — Shaik Kagaji Rabia Basri( [LinkedIn](linkedin.com/in/shaik-kagaji-rabia-basri-766182280) )
 _Work Done: HREF ensemble integration (Random Forest, AdaBoost, SVM), stacking meta-learner design, final hybrid model testing, result comparison table.
 
 
