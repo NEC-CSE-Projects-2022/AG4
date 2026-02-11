@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container-form">
+    <h1>Heart Disease Prediction</h1>
+
+    <form id="predictForm">
+      <div class="grid">
+        <input type="number" step="any" placeholder="Age (24-90)" required>
+        <input type="number" placeholder="Sex (1=Male, 0=Female)" required>
+        <input type="number" placeholder="Chest Pain Type (0-3)" required>
+        <input type="number" placeholder="Resting BP (80-200)" required>
+        <input type="number" placeholder="Cholesterol(100-600)" required>
+        <input type="number" placeholder="Fasting Blood Sugar (0/1)" required>
+        <input type="number" placeholder="Rest ECG (0-2)" required>
+        <input type="number" placeholder="Max Heart Rate (60-202)" required>
+        <input type="number" placeholder="Exercise Angina (0/1)" required>
+        <input type="number" step="any" placeholder="Oldpeak (0-6.2)" required>
+        <input type="number" placeholder="Slope (0-2)" required>
+        <input type="number" placeholder="CA (0-3)" required>
+        <input type="number" placeholder="Thal (3,6,7)" required>
+      </div>
+
+      <button type="submit">Predict</button>
+    </form>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    document.getElementById("predictForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const inputs = Array.from(document.querySelectorAll("input")).map(i => parseFloat(i.value));
+
+      // ------------- VALIDATION START -------------
+
+      // 1. Negative value check
+      const hasNegative = inputs.some(v => v < 0);
+      if (hasNegative) {
+        document.getElementById("output").innerHTML = `
+          <p style="color:white; font-weight:bold;">⚠ Negative values are not allowed.</p>
+        `;
+        return;
+      }
+
+      // 2. Allowed ranges for each field
+      const rules = [
+        {name: "Age", min: 29, max: 90},
+        {name: "Sex", allowed: [0, 1]},
+        {name: "Chest Pain Type", min: 0, max: 3},
+        {name: "Resting BP", min: 80, max: 200},
+        {name: "Cholesterol", min: 100, max: 600},
+        {name: "Fasting Blood Sugar", allowed: [0, 1]},
+        {name: "Rest ECG", min: 0, max: 2},
+        {name: "Max Heart Rate", min: 60, max: 202},
+        {name: "Exercise Angina", allowed: [0, 1]},
+        {name: "Oldpeak", min: 0, max: 6.2},
+        {name: "Slope", min: 0, max: 2},
+        {name: "CA", min: 0, max: 4},
+        {name: "Thal", allowed: [3, 6, 7]}
+      ];
+
+      // 3. Validate each input
+      for (let i = 0; i < inputs.length; i++) {
+        const val = inputs[i];
+        const rule = rules[i];
+
+        // allowed-value fields
+        if (rule.allowed) {
+          if (!rule.allowed.includes(val)) {
+            document.getElementById("output").innerHTML = `
+              <p style="color:white;"><b>Invalid ${rule.name}:</b> Allowed values are ${rule.allowed.join(", ")}</p>
+            `;
+            return;
+          }
+        }
+        // min–max numeric ranges
+        else {
+          if (val < rule.min || val > rule.max) {
+            document.getElementById("output").innerHTML = `
+              <p style="color:white;"><b>Invalid ${rule.name}:</b> Must be between ${rule.min} and ${rule.max}</p>
+            `;
+            return;
+          }
+        }
+      }
+
+      // ------------- VALIDATION END -------------
+
+      // Send to backend only if validation passed
+      const response = await fetch("/predict", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({input: inputs})
+      });
+
+      const html = await response.text();
+      document.open();
+      document.write(html);
+      document.close();
+
+
+      if (data.error) {
+        document.getElementById("output").innerHTML = `
+          <p style="color:white;">Error: ${data.error}</p>
+        `;
+      } else {
+        document.getElementById("output").innerHTML = `
+          <h2>Result: ${data.result}</h2>
+          <p>Prediction Score: ${data.prediction.toFixed(4)}</p>
+        `;
+      }
+    });
+  </script>
+
+</body>
+</html>

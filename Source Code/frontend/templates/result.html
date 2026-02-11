@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<style>
+    .btn{
+    display: inline-block;
+    padding: 12px 25px;
+    background: #2b6c84;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+</style>
+<body>
+    <div class="container-form">
+        <h2>Prediction Result</h2>
+
+<p><b>Prediction Probability:</b> {{ probability }}</p>
+<p><b>Result:</b> {{ result }}</p>
+<p><b>Risk Level:</b> {{ risk }}</p>
+
+
+<!-- GRAPH IMAGE -->
+<img src="{{ url_for('static', filename='graphs/' + graph_file) }}"
+     style="width: 450px; margin-top: 20px; border-radius: 10px;">
+
+        <a href="/predict">
+            <button>Predict Again</button>
+        </a>
+    </div>
+    
+</body>
+</html>
